@@ -26,8 +26,8 @@ usually subordinate "children" in a component hierarchy, container components
 are in almost every case the "parents" of presentational components.
 
 Here's a concise definition of the container component pattern:
-* Container components are primarily concerned with *how thing work*;
-* they rarely have any html markup of their own, aside from a 
+* Container components are primarily concerned with *how things work*;
+* they rarely have any HTML markup of their own, aside from a 
   wrapping `<div>`;
 * they are often stateful; and,
 * they are responsible for providing data and behavior to their children (usually
