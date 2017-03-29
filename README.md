@@ -77,14 +77,14 @@ const renderBook = ({title, img_url}) => {
   return (
     <div className="book">
       <img src={img_url} />
-      <h3>{book.title}</h3>
+      <h3>{title}</h3>
     </div>
   )
 }
 
 const BookList = ({ books }) => (
   <div className="book-list">
-    {books.map(book => renderBook}
+    {books.map(book => renderBook)}
   </div>
 );
 
@@ -128,3 +128,5 @@ The container component pattern in React therefore helps us write better code by
 
 - [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005#.2kd1wuyp4)
 - [CSS Tricks: Container Components](https://css-tricks.com/learning-react-container-components/)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-container-components'>Container Components</a> on Learn.co and start learning to code for free.</p>
