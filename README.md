@@ -77,14 +77,14 @@ const renderBook = ({title, img_url}) => {
   return (
     <div className="book">
       <img src={img_url} />
-      <h3>{book.title}</h3>
+      <h3>{title}</h3>
     </div>
   )
 }
 
 const BookList = ({ books }) => (
   <div className="book-list">
-    {books.map(book => renderBook}
+    {books.map(book => renderBook)}
   </div>
 );
 
