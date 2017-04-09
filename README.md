@@ -13,7 +13,7 @@ We know now that much of our app ought to consist of so-called "dumb" or present
 
 ![Dolphins](https://media.giphy.com/media/9HXOac9CZshOM/giphy.gif)
 
-So what is a container component? The main thing to keep in mind here is that container components and presentation components go together. In fact, you can think of them as part of the same design pattern.  Where presentation components are dumb, container components are "smart". Where container components are usually subordinate "children" in a component hierarchy, container components are in almost every case the "parents" of presentational components.
+So what is a container component? The main thing to keep in mind here is that container components and presentation components go together. In fact, you can think of them as part of the same design pattern.  Where presentation components are dumb, container components are "smart". Where presentation components are usually subordinate "children" in a component hierarchy, container components are in almost every case the "parents" of presentational components.
 
 Here's a concise definition of the container component pattern:
 * Container components are primarily concerned with *how things work*;
@@ -128,3 +128,5 @@ The container component pattern in React therefore helps us write better code by
 
 - [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005#.2kd1wuyp4)
 - [CSS Tricks: Container Components](https://css-tricks.com/learning-react-container-components/)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-container-components'>Container Components</a> on Learn.co and start learning to code for free.</p>
