@@ -7,7 +7,7 @@ this lesson you will be able to:
 2. Explain how to create a container component.
 3. Explain the benefits of using a container component.
 
-## It's Good to Be "Smart" Too
+## What Are Container Components
 
 We know now that much of our app ought to consist of presentational components, which deal exclusively with the way the UI looks and which preferably carry no state. By the same token, our applications will almost always need some components that take responsibility for the *the way things work.* 
 
