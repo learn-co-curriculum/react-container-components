@@ -35,7 +35,7 @@ class BookList extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/api/current_user/book_list')
       .then(response => response.json())
       .then((books => this.setState({ books }));
@@ -87,7 +87,7 @@ const BookList = ({ books }) => (
   </div>
 );
 
-class BookListContainer extends Component {
+class BookListContainer extends React.Component {
   constructor() {
     super();
 
@@ -96,7 +96,7 @@ class BookListContainer extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/api/current_user/book_list')
       .then(response => response.json())
       .then((books => this.setState({ books }));
@@ -118,7 +118,7 @@ We've gained another advantage as well. Because the `BookList` takes a prop `boo
 BookList.propTypes = {
   books: PropTypes.shape({
     img_url: PropTypes.string.isRequired,
-    title: PropsTypes.string.isRequired
+    title: PropTypes.string.isRequired
   });
 }
 ```
