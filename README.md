@@ -125,7 +125,7 @@ const Book = ({ title, img_url }) => (
 
 const BookList = ({ books }) => (
   <div className="book-list">
-    { books.map(book => <Book title="book.title" img_url="book.image_url" />) }
+    { books.map(book => <Book title={book.title} img_url={book.image_url} />) }
   </div>
 )
 
