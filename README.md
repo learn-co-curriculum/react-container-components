@@ -221,7 +221,7 @@ of this design, Dan Abrimov (part of the React dev team), has added a note to hi
 original post on container components regarding this.
 
 While container components have been de-emphasized, they are still a useful tool
-while you get your feet wet with React. Structuring apps with containr and
+while you get your feet wet with React. Structuring apps with container and
 presentational components helps us to understand the way data is shared in an
 application. It allows us to think in a more object-oriented way about React
 components and can keep our applications organized.
