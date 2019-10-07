@@ -217,7 +217,7 @@ React is an ever evolving framework. Using container and presentational componen
 is just one way in which we can write and structure React applications. New additions
 to the language, such as [React hooks], solve some of the challenges that were helped
 by creating separate components to handle logic and presentation. The originator
-of this design, Dan Abrimov (part of the React dev team), has added a note to his
+of the container design pattern, Dan Abrimov (part of the React dev team), has added a note to his
 original post on container components regarding this.
 
 While container components have been de-emphasized, they are still a useful tool
@@ -231,8 +231,6 @@ component, and we encourage you to explore the newest features of React after
 completing these lessons.
 
 [React hooks]: https://reactjs.org/docs/hooks-intro.html
-
-More recently,
 
 ## Resources
 
