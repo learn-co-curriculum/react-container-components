@@ -12,7 +12,7 @@ this lesson you will be able to:
 We know now that much of our app ought to consist of presentational components,
 which deal exclusively with the way the UI looks and which preferably carry no
 state. By the same token, our applications will almost always need some
-components that take responsibility for the *the way things work.*
+components that take responsibility for the _the way things work._
 
 ![Dolphins](https://media.giphy.com/media/9HXOac9CZshOM/giphy.gif)
 
@@ -26,14 +26,14 @@ components.
 
 Here's a concise definition of the container component pattern:
 
-* Container components are primarily concerned with *how things work*
+- Container components are primarily concerned with _how things work_
 
-* They rarely have any HTML markup of their own, aside from a wrapping `<div>`;
+- They rarely have any HTML markup of their own, aside from a wrapping `<div>`;
 
-* They are often stateful
+- They are often stateful
 
-* They are responsible for providing data and behavior to their children (usually
-presentational components).
+- They are responsible for providing data and behavior to their children (usually
+  presentational components).
 
 ## An Example
 
@@ -43,39 +43,37 @@ allows book lovers to communicate about their favorite reads. The component
 specification is simple enough: the component should just render the current
 user's book list. Here's one way this component could be written:
 
-```javascript
+```jsx
 class BookList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      books: []
+      books: [],
     };
   }
 
   componentDidMount() {
-    fetch('https://learn-co-curriculum.github.io/books-json-example-api/books.json')
-      .then(response => response.json())
-      .then(bookData => this.setState({ books: bookData.books }))
+    fetch(
+      "https://learn-co-curriculum.github.io/books-json-example-api/books.json"
+    )
+      .then((response) => response.json())
+      .then((bookData) => this.setState({ books: bookData.books }));
   }
 
   renderBooks = () => {
-    return this.state.books.map(book => {
+    return this.state.books.map((book) => {
       return (
         <div className="book">
-          <img src={ book.img_url } />
-          <h3>{ book.title }</h3>
+          <img src={book.img_url} />
+          <h3>{book.title}</h3>
         </div>
-      )
-    })
-  }
+      );
+    });
+  };
 
   render() {
-    return (
-      <div className="book-list">
-        { this.renderBooks() }
-      </div>
-    )
+    return <div className="book-list">{this.renderBooks()}</div>;
   }
 }
 ```
@@ -85,10 +83,10 @@ specification. However, there are some disadvantages to this implementation.
 Consider for a moment the number of assumptions this component makes about how
 and what data is fetched and how that data displayed:
 
-* It assumes that the call to the api returns a JSON object containing a list of
+- It assumes that the call to the api returns a JSON object containing a list of
   book objects with the properties `img_url` and `title`.
 
-* It assumes that the book list will always be rendered with the same markup
+- It assumes that the book list will always be rendered with the same markup
   returned by the render function.
 
 In short, this component has tightly coupled together a whole set of assumptions
@@ -115,16 +113,16 @@ logic.
 Here's how this might look. Take a gander at the following code snippets. First,
 we have the presentational component, `Book`:
 
-```javascript
+```jsx
 // src/Book.js
-import React from 'react';
+import React from "react";
 
 const Book = ({ title, img_url }) => (
   <div className="book">
-    <img src={ img_url } alt={title}/>
-    <h3>{ title }</h3>
+    <img src={img_url} alt={title} />
+    <h3>{title}</h3>
   </div>
-)
+);
 
 export default Book;
 ```
@@ -133,21 +131,23 @@ The component above has one thing to do - given props of `title` and `img_url`, 
 these props should be displayed. This component is so simple, it's easy to write it compactly
 as a functional component.
 
-Since we're dealing with an app that displays book_s_, one level up from
+Since we're dealing with an app that displays book*s*, one level up from
 `Books`, we can write a second component, `BookList`. This component takes in a
 `books` prop and maps over it, rendering a `Book` component for each element in
 the `books` prop.
 
-```js
+```jsx
 // src/BookList.js
-import React from 'react';
-import Book from './Book';
+import React from "react";
+import Book from "./Book";
 
 const BookList = ({ books }) => (
   <div className="book-list">
-    { books.map(book => <Book title={book.title} img_url={book.img_url} />) }
+    {books.map((book) => (
+      <Book title={book.title} img_url={book.img_url} />
+    ))}
   </div>
-)
+);
 
 export default BookList;
 ```
@@ -159,28 +159,30 @@ display the `Book` components and to pass data to those components.
 
 That leaves the final component, where the main logic is:
 
-```js
+```jsx
 // src/BookListContainer.js
-import React from 'react';
-import BookList from './BookList';
+import React from "react";
+import BookList from "./BookList";
 
 class BookListContainer extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
-      books: []
+      books: [],
     };
   }
 
   componentDidMount() {
-    fetch('https://learn-co-curriculum.github.io/books-json-example-api/books.json')
-      .then(response => response.json())
-      .then(bookData => this.setState({ books: bookData.books }))
+    fetch(
+      "https://learn-co-curriculum.github.io/books-json-example-api/books.json"
+    )
+      .then((response) => response.json())
+      .then((bookData) => this.setState({ books: bookData.books }));
   }
 
   render() {
-    return <BookList books={this.state.books} />
+    return <BookList books={this.state.books} />;
   }
 }
 
@@ -201,7 +203,7 @@ Because we've uncoupled (or to be more precise, loosely coupled) the data and
 presentation layers, we can now easily reuse the `BookList` component. We could,
 for example, write another container component &mdash; let's say
 `FavoritedBookListContainer` &mdash; and then import and wrap `BookList` in
-order to build a different piece of our UI with the same code. 
+order to build a different piece of our UI with the same code.
 
 If, later, our design team decided to redesign the way book lists appear in our
 app, they would only need to update `BookList`. This is React at its best.
@@ -227,14 +229,12 @@ application. It allows us to think in a more object-oriented way about React
 components and can keep our applications organized.
 
 It is now entirely possible to write React applications in a single functional
-component, and we encourage you to explore the newest features of React after 
+component, and we encourage you to explore the newest features of React after
 completing these lessons.
 
-[React hooks]: https://reactjs.org/docs/hooks-intro.html
+[react hooks]: https://reactjs.org/docs/hooks-intro.html
 
 ## Resources
 
 - [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005#.2kd1wuyp4)
 - [CSS Tricks: Container Components](https://css-tricks.com/learning-react-container-components/)
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-container-components'>Container Components</a> on Learn.co and start learning to code for free.</p>
